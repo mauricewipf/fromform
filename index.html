@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Send Contact Forms to Your Email">
+    <meta name="author" content="Maurice Wipf">
+    <title>fromform.io – Contact Form Server</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">fromform.io</div>
+                <div class="intro-heading">Contact Form -> Inbox</div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">Copy This And You Are Good To Go</h3>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <pre>
+              &lt;form id="contact-form" action="<b>https://fromform.herokuapp.com/send-form</b>" method="post"&gt;
+                  &lt;input type="hidden" name="userEmail" value="youremail@address.com"&gt;
+                  &lt;input type="email" name="submitterEmail"&gt;
+                  &lt;textarea name="message"&gt;&lt;/textarea&gt;
+                  &lt;input type="submit" value="Submit"&gt;
+              &lt;/form&gt;
+              &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
+              &lt;!-- Prevents page reload --&gt;
+              &lt;script&gt;$(function(){$("#contact-form").submit(function(t){t.preventDefault();new FormData($(this)[0]);console.log($(this).serialize()),$.ajax({url:"/send-form",data:$(this).serialize(),processData:!1,contentType:!1,type:"POST",success:function(t){}})})});&lt;/script&gt;
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Features</h2>
+                    <h3 class="section-subheading text-muted">Send Contact Forms to Your Email</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">No Server-Side Code</h4>
+                    <p class="text-muted">No need to mess with PHP or any other server side language. Just POST the form to the ACTION link mentioned above.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Server-Side validation</h4>
+                    <p class="text-muted">You're safe on backend. Feel free to add client side validation if needed.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Fully CSS Customizable</h4>
+                    <p class="text-muted">Just make sure not to change input names.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Try It Out!</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="contact-form" action="/send-form" method="post">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="userEmail" placeholder="Your Email">
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="submitterEmail" value="submitter@email.com">
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-xs-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Aside -->
+    <!-- <aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside> -->
+
+    <section>
+      <div class="container">
+          <div class="row text-center">
+              <div class="col-md-4"><a href="https://github.com/mauricewipf/fromform/README.md">
+                  <span class="fa-stack fa-4x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+                  </span></a>
+                  <a href="https://github.com/mauricewipf/fromform/README.md"><h4 class="service-heading">Docs</h4></a>
+              </div>
+              <div class="col-md-4"><a href="https://github.com/mauricewipf/fromform">
+                  <span class="fa-stack fa-4x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-code-fork fa-stack-1x fa-inverse"></i>
+                  </span></a>
+                  <a href="https://github.com/mauricewipf/fromform"><h4 class="service-heading">Contribute,<br/>it's open source</h4></a>
+              </div>
+              <div class="col-md-4"><a href="/marketers">
+                  <span class="fa-stack fa-4x">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-bullhorn fa-stack-1x fa-inverse"></i>
+                  </span></a>
+                  <a href="/marketers"><h4 class="service-heading">For Marketers</h4></a>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <footer id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Created By</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="team-member">
+                        <img src="img/mauwi.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Maurice Wipf</h4>
+                        <p class="text-muted">Product Manager</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com/mauwi"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://github.com/mauricewipf"><i class="fa fa-github"></i></a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/mauricewipf"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="form-script.js"></script>
+</body>
+
+</html>
