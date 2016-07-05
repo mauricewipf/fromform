@@ -12,12 +12,13 @@ A nodeJS server that receives `<form>` POSTs and sends you an email with the sub
 ## Set up own nodeJS server
 
 1. Fork this repository.
-2. Sign up at [Sengrid](https://sendgrid.com) and get an API Key.
-3. Create a file called 'sendgrid-api.js' in the root folder with the following input:
+2. Sign up at [Sendgrid](https://sendgrid.com) and get an API Key.
+3. Create a file called '.env' in the root folder with the following input (where `VALUE` is your API key):
 ```
-exports.key = "YOUR_SENDGRID_API_KEY";
+SENDGRID_API_KEY=VALUE
 ```
 4. Change link of the form action (`action="yourdomain.com/send-form"`).
+5. Start server: `$ node server`
 
 ## License
 

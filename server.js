@@ -1,4 +1,3 @@
-var http = require('http');
 var qs = require('querystring');
 var sendgrid = require('./sendgrid-email');
 var fs = require('fs');

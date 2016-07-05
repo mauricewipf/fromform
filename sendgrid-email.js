@@ -1,10 +1,9 @@
 /*
  * https://github.com/sendgrid/sendgrid-nodejs
  * https://github.com/sendgrid/sendgrid-nodejs-example
- * Create template here: https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html
+ * Create templates here: https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html
  */
 
-var sendgrid_api_key = require('./sendgrid-api').key;
 var dotenv = require('dotenv');
 dotenv.load();
 
@@ -28,7 +27,7 @@ var params = {
 
 
 function send(data) {
-  var sendgrid = require('sendgrid')(sendgrid_api_key);
+  var sendgrid = require('sendgrid')(process.env.SENDGRID_API_KEY);
 
   params['to'] = data['userEmail'];
   params['from'] = data['submitterEmail'];
