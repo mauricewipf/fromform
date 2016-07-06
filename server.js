@@ -4,21 +4,23 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 var sanitizer = require('sanitizer');
+var path = require('path');
 var port = (process.env.PORT || 8000); // set port dynamically for Heroku
 
-app.use(express.static(__dirname + '/'));
+app.use('/', express.static(__dirname + '/'));
+app.use('/marketers', express.static(__dirname + '/marketers.html'));
 
-app.get('/', function (req, res) {
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  res.sendFile(__dirname + '/index.html');
-  res.end();
-});
-
-app.get('/marketers', function (req, res) {
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  res.sendFile(__dirname + '/marketers.html');
-  res.end();
-});
+// app.get('/', function (req, res) {
+//   res.writeHead(200, {'Content-Type': 'application/json'});
+//   res.sendFile(__dirname + '/index.html');
+//   res.end();
+// });
+//
+// app.get('/marketers', function (req, res) {
+//   res.writeHead(200, {'Content-Type': 'application/json'});
+//   res.sendFile(__dirname + '/marketers.html');
+//   res.end();
+// });
 
 app.post('/send-form', function (req, res) {
   var body = '';
