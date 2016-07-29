@@ -22,7 +22,7 @@ app.use('/marketers', express.static(__dirname + '/marketers.html'));
 //   res.end();
 // });
 
-app.post('/send-form', function (req, res) {
+app.post('/email', function (req, res) {
   var body = '';
 
   req.on('error', function(err) {

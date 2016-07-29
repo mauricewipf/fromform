@@ -4,7 +4,7 @@ $(function() {
         var fd = new FormData($(this)[0]);
         console.log($(this).serialize());
         $.ajax({
-            url: '/send-form',
+            url: '/email',
             data: $(this).serialize(),
             processData: false,
             contentType: false,

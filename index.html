@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Send Contact Forms to Your Email">
     <meta name="author" content="Maurice Wipf">
-    <title>fromform.io – Contact Form Server</title>
+    <title>fromform – Contact Form Server</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -28,7 +28,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">fromform.io</div>
+                <div class="intro-lead-in">fromform</div>
                 <div class="intro-heading">Contact Form -> Inbox</div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col-xs-12">
             <pre>
-              &lt;form id="contact-form" action="<b>https://fromform.herokuapp.com/send-form</b>" method="post"&gt;
+              &lt;form id="contact-form" action="<b>https://fromform.herokuapp.com/email</b>" method="post"&gt;
                   &lt;input type="hidden" name="userEmail" value="youremail@address.com"&gt;
                   &lt;input type="email" name="submitterEmail"&gt;
                   &lt;textarea name="message"&gt;&lt;/textarea&gt;
@@ -52,7 +52,7 @@
               &lt;/form&gt;
               &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
               &lt;!-- Prevents page reload --&gt;
-              &lt;script&gt;$(function(){$("#contact-form").submit(function(t){t.preventDefault();new FormData($(this)[0]);console.log($(this).serialize()),$.ajax({url:"/send-form",data:$(this).serialize(),processData:!1,contentType:!1,type:"POST",success:function(t){}})})});&lt;/script&gt;
+              &lt;script&gt;$(function(){$("#contact-form").submit(function(t){t.preventDefault();new FormData($(this)[0]);console.log($(this).serialize()),$.ajax({url:"/email",data:$(this).serialize(),processData:!1,contentType:!1,type:"POST",success:function(t){}})})});&lt;/script&gt;
             </pre>
           </div>
         </div>
@@ -107,7 +107,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contact-form" action="/send-form" method="post">
+                    <form id="contact-form" action="/email" method="post">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">

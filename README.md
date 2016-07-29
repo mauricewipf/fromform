@@ -17,7 +17,7 @@ A nodeJS server that receives `<form>` POSTs and sends you an email with the sub
 ```
 SENDGRID_API_KEY=VALUE
 ```
-4. Change link of the form action (`action="yourdomain.com/send-form"`).
+4. Change link of the form action (`action="yourdomain.com/email"`).
 5. Start server: `$ node server`
 
 ## License

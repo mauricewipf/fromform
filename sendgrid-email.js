@@ -32,13 +32,23 @@ function send(data) {
   params['to'] = data['userEmail'];
   params['from'] = data['submitterEmail'];
   params['replyto'] = data['submitterEmail'];
-
+  /*
+  params['toname'] = data['userName'];
+  params['subject'] = data['subject'];
+  params['fromname'] = data['submitterName'];
+  params['files'] = data['file'];
+  var phonenumber = data['phone'];
+  var address = data['submitterAddress'];
+  var verifcationEmailToSubmitter = data['verifcationEmailToSubmitter']; // true or false
+  var textMessageNumber = data['emailAsTextMessageTo']; // false if empty
+  */
+  var message = data['message'];
   var advertisement = '<br>---<br>This email is supported by<br><a href="http://mauwi.me">mauwi.me</a>';
 
   // Build the smtpapi header
   var header = new sendgrid.smtpapi();
   header.addSubstitution('%submitterEmail%', [data['submitterEmail']]);
-  header.addSubstitution('%message%', [data['message']]);
+  header.addSubstitution('%message%', [message]);
   header.addSubstitution('%advertisement%', [advertisement]);
   var headers = {'X-Sent-Using': 'SendGrid-API',
                  'X-Transport': 'web',
